@@ -90,9 +90,6 @@ header a ~ p {
 	margin-top: 10px;
 }
 
-#ballotImg {
-	width: 30%;
-}
 .btn p {
 	margin: 8px 0 0 0;
 	padding: 0;
@@ -105,16 +102,15 @@ header a ~ p {
 
 /****** Logo Div Styling ******/
 
-img {
+.title-img {
 	margin: 0 auto;
+	width: 30%;
 	display: block;
 }
 
-.clementine-text { /* Styling for the Clementine.js text */
-	padding: 0;
-	margin: -25px 0 0 0;
-	font-weight: 500;
-	font-size: 60px;
+.title-text { /* Styling for the 'Voting App' text */
+	margin: -20px 0 20px 0;
+	font: 600 55px/95% 'Roboto';
 	color: #a03;
 }
 
@@ -127,7 +123,7 @@ img {
 
 .btn {	/* Styling for buttons */
 	margin: 0 8px;
-	color: white;
+	color: #fff;
 	background-color: #009;
 	display: inline-block;
 	border: 0;
@@ -142,15 +138,14 @@ img {
 	outline: none;
 }
 
-.btn:active {	/* Scale the button down by 10% when clicking on button */
-	transform: scale(0.9, 0.9);
-	-webkit-transform: scale(0.9, 0.9);
-	-moz-transform: scale(0.9, 0.9);
-	background-color: #00D;
+.btn:active {	/* Scale the button down by 5% when clicking on button */
+	-webkit-transform: scale(0.95, 0.95);
+	transform: scale(0.95, 0.95);
 }
 
 .btn:hover {
-	background-color: #00A;
+	background-color: #00B;
+	color: #fff;
 }
 .btn-delete {	/* Styling for delete button */
 	background-color: #ECEFF1;
@@ -167,7 +162,7 @@ img {
 	width: 350px;
 	height: 200px;
 	border-radius: 3px;
-	margin: 86px auto 0 auto;
+	margin: 20px auto;
 	background-color: #EEE;
 	text-align: center;
 	color: #000;
@@ -208,7 +203,20 @@ span {
 }
 
 #menu-divide {
-	color: #FFFFFF;
+	color: #fff;
 	display: inline;
 	margin: 0;
 }
+
+.user-polls {
+	margin: 0 auto;
+	width: 80%;
+	text-align: center;
+}
+
+table {
+	background-color: #EEE;
+	width: 100%;
+	margin-top: -10px;
+}
+
