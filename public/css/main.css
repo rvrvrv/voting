@@ -172,25 +172,25 @@ header a~p {
 /****** Profile Styling ******/
 
 .github-profile {
-	width: 350px;
-	height: 200px;
+	width: 300px;
+	height: 150px;
 	border-radius: 3px;
-	margin: 10px auto;
+	margin: 5px auto;
 	background: #EEE;
 	text-align: center;
 	color: #000;
 }
 
-.github-profile p:first-child {
-	padding-top: 16px;
+.github-profile h2 {
+	margin-bottom: 0;
 }
 
-.github-profile p:nth-child(5) {
-	margin-bottom: 16px
+.github-profile p:nth-child(4) {
+	margin-bottom: 12px;
 }
 
 .github-profile p {
-	margin: 0 0 0 16px;
+	margin: 0 0 0 12px;
 	text-align: left;
 }
 
@@ -200,11 +200,6 @@ header a~p {
 
 span {
 	font-weight: 500;
-}
-
-.github-profile>img {
-	padding-top: 16px;
-	margin-bottom: 16px;
 }
 
 .github-profile .menu:hover {
