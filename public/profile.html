@@ -10,7 +10,7 @@
 <body>
 	<div class="container">
 		<div class="github-profile">
-			<h2><i class="fa fa-2x fa-github" aria-hidden="true"></i></h2>
+			<h2><i class="fa fa-2x fa-github"></i></h2>
 			<p><span>ID: </span><span id="profile-id" class="profile-value"></span></p>
 			<p><span>Username: </span><span id="profile-username" class="profile-value"></span></p>
 			<p><span>Display Name: </span><span id="display-name" class="profile-value"></span></p>
@@ -23,14 +23,24 @@
 			<h3>Your Polls:</h3>
 			<table>
 				<tr>
-					<th>Poll</th>
+					<th>Question</th>
 					<th>View</th>
 					<th>Delete</th>
 				</tr>
 				<tr>
 					<td>Who is your favorite?</td>
-					<td>V</td>
-					<td>X</td>
+					<td><a class="viewCtrl" href=""><i class="fa fa-2x fa-eye"></i></a></td>
+					<td><a class="delCtrl" href=""><i class="fa fa-2x fa-minus-circle"></i></a></td>
+				</tr>
+								<tr>
+					<td>What is the best?</td>
+					<td><a class="viewCtrl" href=""><i class="fa fa-2x fa-eye"></i></a></td>
+					<td><a class="delCtrl" href=""><i class="fa fa-2x fa-minus-circle"></i></a></td>
+				</tr>
+								<tr>
+					<td>How many times?</td>
+					<td><a class="viewCtrl" href=""><i class="fa fa-2x fa-eye"></i></a></td>
+					<td><a class="delCtrl" href=""><i class="fa fa-2x fa-minus-circle"></i></a></td>
 				</tr>
 			</table>
 
