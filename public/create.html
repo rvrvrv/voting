@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Voting App</title>
+	<link href="/public/css/main.css" rel="stylesheet" type="text/css">
+</head>
+
+<header>
+	<p>Welcome, <span id="display-name"></span>!</p>
+	<a class="menu" href="/">Home</a>
+	<p>|</p>
+	<a class="menu" href="/profile">Profile</a>
+	<p>|</p>
+	<a class="menu" href="/logout">Logout</a>
+</header>
+
+<body>
+	<div class="container">
+		<img class="title-img" src="/public/img/ballot.png" />
+		<br />
+		<p class="title-text">Create a Poll</p>
+	</div>
+	<div class="container">
+		<form class="newPoll">
+			<table class="create-poll">
+				<tr>
+					<th>Title/Question:</th>
+					<td><input type="text" name="title" placeholder="Who is your favorite cartoon character?"></td>
+				</tr>
+				<tr>
+					<th>Choices:</th>
+					<td><input type="text" name="choice" placeholder="Top Cat"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="text" name="choice" placeholder="Fred Flinstone"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="text" name="choice" placeholder="Yogi Bear"></td>
+				</tr>
+			</table>
+		</form>
+
+	</div>
+	<div class="btn-container">
+		<button class="btn btn-big btn-add">Add Choice</button>
+		<button class="btn btn-big btn-rm">Remove Choice</button>
+	</div>
+	<div class="btn-container">
+		<button type="submit" class="btn btn-big btn-save">Save</button>
+	</div>
+</body>
+<script type="text/javascript" src="common/ajax-functions.js"></script>
+<script type="text/javascript" src="common/polling.js"></script>
+<script type="text/javascript" src="controllers/clickController.client.js"></script>
+<script type="text/javascript" src="controllers/userController.client.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://use.fontawesome.com/21a9ccba03.js"></script>
+</html>
