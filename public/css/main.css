@@ -61,11 +61,11 @@ header p {
 }
 
 .menu:hover {
-	color: #FFA000;
+	color: #a03;
 }
 
 .menu:active {
-	color: #FF630D;
+	color: #c04;
 }
 
 header a~p {
@@ -123,49 +123,34 @@ header a~p {
 /****** Click Styling ******/
 
 .btn-container {
-	/* Styling for the div that contains the buttons */
 	margin: -10px auto 0 auto;
 	text-align: center;
 }
 
 .btn {
-	/* Styling for buttons */
 	margin: 0 8px;
 	color: #fff;
 	background: #009;
 	display: inline-block;
 	border: 0;
 	font-size: 14px;
-	border-radius: 3px;
+	border-radius: 6px;
 	padding: 10px 5px;
 	width: 100px;
 	font-weight: 500;
 }
 
 .btn:focus {
-	/* Remove outline when hovering over button */
 	outline: none;
 }
 
 .btn:active {
-	/* Scale the button down by 5% when clicking on button */
-	-webkit-transform: scale(0.95, 0.95);
-	transform: scale(0.95, 0.95);
+	box-shadow: 0 0 5px #00F;
 }
 
 .btn:hover {
 	background: #00B;
 	color: #fff;
-}
-
-.btn-delete {
-	/* Styling for delete button */
-	background: #ECEFF1;
-	color: #212121;
-}
-
-#click-nbr {
-	font-weight: 400;
 }
 
 
