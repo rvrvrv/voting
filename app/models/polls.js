@@ -6,9 +6,9 @@ var Schema = mongoose.Schema;
 var Poll = new Schema({
 	creator: String,
 	title: String,
-    choices: [{
-        text: String,
-        votes: Number
+	choices: [{
+		text: String,
+		votes: { type: Number, default: 0, isRequired: true }
     }]
 });
 
