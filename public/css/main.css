@@ -15,22 +15,25 @@
 }
 
 
-/****** Main Styling ******/
+/****** Main ******/
+
+* {
+	-webkit-transition: all 0.2s;
+	transition: all 0.2s;
+}
 
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
+	text-align: center;
 	margin: 0;
 	padding: 0;
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
 }
 
 header {
 	color: #00BCD4;
 	height: 56px;
 	margin: 0 0 14px 0;
-	text-align: center;
 }
 
 p {
@@ -38,12 +41,11 @@ p {
 }
 
 .container p {
-	text-align: center;
 	padding: 0;
 }
 
 
-/****** Header Styling ******/
+/****** Header  ******/
 
 header p {
 	margin: 16px 0 5px 0;
@@ -61,11 +63,11 @@ header p {
 }
 
 .menu:hover {
-	color: #FFA000;
+	color: #a03;
 }
 
 .menu:active {
-	color: #FF630D;
+	color: #c04;
 }
 
 header a~p {
@@ -80,11 +82,10 @@ header a~p {
 }
 
 
-/****** Login Styling ******/
+/****** Login ******/
 
 .login {
 	margin: 86px auto 0 auto;
-	text-align: center;
 }
 
 #login-btn {
@@ -104,11 +105,12 @@ header a~p {
 }
 
 
-/****** Logo Div Styling ******/
+/****** Logo Div ******/
 
 .title-img {
 	margin: 0 auto;
 	width: 30%;
+	max-width: 350px;
 	display: block;
 }
 
@@ -120,56 +122,130 @@ header a~p {
 }
 
 
-/****** Click Styling ******/
+/****** Buttons ******/
 
 .btn-container {
-	/* Styling for the div that contains the buttons */
-	margin: -10px auto 0 auto;
-	text-align: center;
+	margin: 0 auto;
 }
 
 .btn {
-	/* Styling for buttons */
 	margin: 0 8px;
 	color: #fff;
 	background: #009;
 	display: inline-block;
 	border: 0;
 	font-size: 14px;
-	border-radius: 3px;
+	border-radius: 6px;
 	padding: 10px 5px;
-	width: 100px;
 	font-weight: 500;
+	min-width: 120px;
 }
 
 .btn:focus {
-	/* Remove outline when hovering over button */
 	outline: none;
 }
 
 .btn:active {
-	/* Scale the button down by 5% when clicking on button */
-	-webkit-transform: scale(0.95, 0.95);
-	transform: scale(0.95, 0.95);
+	box-shadow: 0 0 5px #00F;
 }
 
 .btn:hover {
-	background: #00B;
-	color: #fff;
+	background: #00c;
 }
 
-.btn-delete {
-	/* Styling for delete button */
-	background: #ECEFF1;
-	color: #212121;
+.btn-big {
+	-webkit-transform: scale(1.3);
+	transform: scale(1.3);
+	margin-bottom: 20px;
 }
 
-#click-nbr {
-	font-weight: 400;
+.btn-add, .btn-rm {
+	margin: 0 20px 30px 20px;
+}
+
+.btn-add {
+	background: #080;
+}
+
+.btn-rm {
+	background: #900;
+}
+
+.btn-add:hover {
+	background: #0a0;
+}
+
+.btn-rm:hover {
+	background: #b00;
 }
 
 
-/****** Profile Styling ******/
+/****** Poll Lists ******/
+
+.all-polls {
+	margin: 30px auto;
+	width: 60%;
+}
+
+.user-polls {
+	margin: 30px auto;
+	width: 80%;
+}
+
+table {
+	width: 100%;
+	margin-top: -10px;
+	font-size: 1.1em;
+}
+
+th {
+	background: #DDF;
+}
+
+tr {
+	background: #eee;
+}
+
+td a {
+	text-decoration: none !important;
+}
+
+.viewCtrl:visited,
+.delCtrl:visited {
+	color: #000;
+}
+
+.viewCtrl:hover {
+	color: #00b;
+}
+
+.delCtrl:hover {
+	color: #b00;
+}
+
+
+/****** Poll Creation ******/
+
+.create-poll {
+	width: 80%;
+	margin: 10px auto 20px auto;
+	border-spacing: 3px;
+}
+
+.create-poll th {
+	width: 30%;
+	font-size: 1.2em;
+}
+
+input {
+	border: 3px solid #fff;
+	box-shadow: inset 0 0 5px #ddf;
+	font-size: 20px;
+	width: 100%;
+}
+
+
+/****** Profile ******/
 
 .github-profile {
 	width: 300px;
@@ -177,7 +253,6 @@ header a~p {
 	border-radius: 3px;
 	margin: 5px auto;
 	background: #EEE;
-	text-align: center;
 	color: #000;
 }
 
@@ -214,37 +289,4 @@ span {
 	color: #fff;
 	display: inline;
 	margin: 0;
-}
-
-.user-polls {
-	margin: 30px auto;
-	width: 80%;
-	text-align: center;
-}
-
-table {
-	width: 100%;
-	margin-top: -10px;
-	font-size: 1.1em;
-}
-
-th {
-	background: #DDF;
-}
-
-tr {
-	background: #eee;
-}
-
-.viewCtrl:visited,
-.delCtrl:visited {
-	color: #000;
-}
-
-.viewCtrl:hover {
-	color: #00b;
-}
-
-.delCtrl:hover {
-	color: #b00;
 }
