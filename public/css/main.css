@@ -18,13 +18,8 @@
 /****** Main ******/
 
 * {
-<<<<<<< HEAD
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
-=======
-	-webkit-transition: all 0.5s;
-	transition: all 0.5s;
->>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 }
 
 body {
@@ -241,8 +236,6 @@ td a {
 .create-poll th {
 	width: 30%;
 	font-size: 1.2em;
-=======
->>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 }
 
 input {
@@ -252,8 +245,6 @@ input {
 	width: 100%;
 }
 
-<<<<<<< HEAD
-=======
 /****** Poll Creation ******/
 
 .create-poll {
@@ -273,8 +264,6 @@ input {
 	font-size: 20px;
 	width: 100%;
 }
-
->>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 
 /****** Profile ******/
 

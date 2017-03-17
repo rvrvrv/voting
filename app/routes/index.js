@@ -27,11 +27,7 @@ module.exports = function (app, passport) {
 
 	app.route('/create')
 		.get(isLoggedIn, function (req, res) {
-<<<<<<< HEAD
 			res.sendFile(path + '/public/create.html');
-=======
-			res.sendFile(path + '/public/index.html');
->>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 		});
 
 	app.route('/logout')
