@@ -4,7 +4,7 @@ var Users = require('../models/users.js');
 var Polls = require('../models/polls.js');
 
 function ClickHandler () {
-
+	
 	this.getClicks = function (req, res) {
 		Users
 			.findOne({ 'github.id': req.user.github.id }, { '_id': false })
@@ -14,6 +14,7 @@ function ClickHandler () {
 				res.json(result.nbrClicks);
 			});
 	};
+
 
 	this.addClick = function (req, res) {
 		Users
@@ -37,6 +38,19 @@ function ClickHandler () {
 			);
 	};
 
+	this.createPoll = function (req, res) {
+		console.log(req.body);
+		var newPoll = new Polls(req.body);
+		newPoll
+			.save()
+			.then(function (err, result) {
+				if (err) throw err;
+				console.log(result);
+				res.json(result);
+			});
+	}
 }
 
 module.exports = ClickHandler;
+
+				

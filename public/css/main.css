@@ -18,8 +18,13 @@
 /****** Main ******/
 
 * {
+<<<<<<< HEAD
 	-webkit-transition: all 0.2s;
 	transition: all 0.2s;
+=======
+	-webkit-transition: all 0.5s;
+	transition: all 0.5s;
+>>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 }
 
 body {
@@ -221,9 +226,34 @@ td a {
 
 .delCtrl:hover {
 	color: #b00;
+<<<<<<< HEAD
 }
 
 
+/****** Poll Creation ******/
+
+.create-poll {
+	width: 80%;
+	margin: 10px auto 20px auto;
+	border-spacing: 3px;
+}
+
+.create-poll th {
+	width: 30%;
+	font-size: 1.2em;
+=======
+>>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
+}
+
+input {
+	border: 3px solid #fff;
+	box-shadow: inset 0 0 5px #ddf;
+	font-size: 20px;
+	width: 100%;
+}
+
+<<<<<<< HEAD
+=======
 /****** Poll Creation ******/
 
 .create-poll {
@@ -244,6 +274,7 @@ input {
 	width: 100%;
 }
 
+>>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 
 /****** Profile ******/
 
