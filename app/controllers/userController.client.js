@@ -14,11 +14,8 @@
 	ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function (data) {
 		var userObject = JSON.parse(data);
 
-<<<<<<< HEAD
 		localStorage.setItem('id', userObject.id); //Save logged-in ID for session
 
-=======
->>>>>>> 03c5911dd11d7362c697cba32262f63e9d675bfc
 		if (userObject.displayName) updateHtmlElement(userObject, displayName, 'displayName');
 		else updateHtmlElement(userObject, displayName, 'username');
 
