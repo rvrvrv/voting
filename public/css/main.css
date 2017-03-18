@@ -288,6 +288,7 @@ tr {
 }
 
 td a {
+	color: #000;
 	text-decoration: none !important;
 }
 
@@ -302,7 +303,7 @@ td a {
 
 .delCtrl:hover {
 	color: #b00;
-
+}
 
 /****** Profile ******/
 

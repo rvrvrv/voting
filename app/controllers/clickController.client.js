@@ -2,19 +2,18 @@
 
 (function () {
 
-   var pollBtn = document.querySelector('.viewCtrl');
-   var delBtn = '';
-   var allPolls = document.querySelector('.all-Polls');
-   var apiUrl = appUrl + '/api/:id/clicks';
+   //var pollBtn = document.querySelector('.viewCtrl');
+   //var delBtn = '';
+   var allPolls = document.querySelector('#allPolls');
+   var apiUrl = appUrl + '/api/:id/load';
 
-   function getPolls (data) {
-      console.log(data);
-
-
-      allPolls.innerHTML = pollsObj;
+   //Retrieve and display all polls in DB
+   function getAllPolls (data) {
+     console.log(data);
+     allPolls.innerHTML = data.slice(1,-1);
    }
 
-   ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getPolls));
+   ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getAllPolls));
 
    // pollBtn.addEventListener('click', function () {
    //    console.log('clicked');
