@@ -1,6 +1,7 @@
 'use strict';
 
 (function () {
+
    var pollBtn = document.querySelector('.viewCtrl');
    var delBtn = '';
    var allPolls = document.querySelector('.all-Polls');

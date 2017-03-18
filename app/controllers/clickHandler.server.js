@@ -5,6 +5,7 @@ var Polls = require('../models/polls.js');
 
 function ClickHandler () {
 	
+
 	this.getPolls = function (req, res) {
 		console.log('getting');
 		Polls

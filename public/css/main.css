@@ -244,6 +244,65 @@ input {
 	width: 100%;
 }
 
+.btn-add {
+	background: #080;
+}
+
+.btn-rm {
+	background: #900;
+}
+
+.btn-add:hover {
+	background: #0a0;
+}
+
+.btn-rm:hover {
+	background: #b00;
+}
+
+
+/****** Poll Lists ******/
+
+.all-polls {
+	margin: 30px auto;
+	width: 60%;
+}
+
+.user-polls {
+	margin: 30px auto;
+	width: 80%;
+}
+
+table {
+	width: 100%;
+	margin-top: -10px;
+	font-size: 1.1em;
+}
+
+th {
+	background: #DDF;
+}
+
+tr {
+	background: #eee;
+}
+
+td a {
+	text-decoration: none !important;
+}
+
+.viewCtrl:visited,
+.delCtrl:visited {
+	color: #000;
+}
+
+.viewCtrl:hover {
+	color: #00b;
+}
+
+.delCtrl:hover {
+	color: #b00;
+
 
 /****** Profile ******/
 
