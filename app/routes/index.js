@@ -5,7 +5,7 @@ var ClickHandler = require(path + '/app/controllers/clickHandler.server.js');
 
 module.exports = function (app, passport) {
 
-	function isLoggedIn (req, res, next) {
+	function isLoggedIn(req, res, next) {
 		if (req.isAuthenticated()) {
 			return next();
 		} else {
@@ -23,6 +23,11 @@ module.exports = function (app, passport) {
 	app.route('/login')
 		.get(function (req, res) {
 			res.sendFile(path + '/public/login.html');
+		});
+
+	app.route('/create')
+		.get(isLoggedIn, function (req, res) {
+			res.sendFile(path + '/public/create.html');
 		});
 
 	app.route('/logout')
@@ -49,9 +54,12 @@ module.exports = function (app, passport) {
 			successRedirect: '/',
 			failureRedirect: '/login'
 		}));
-
+		
 	app.route('/api/:id/clicks')
-		.get(isLoggedIn, clickHandler.getClicks)
+		.get(isLoggedIn, clickHandler.getPolls)
 		.post(isLoggedIn, clickHandler.addClick)
 		.delete(isLoggedIn, clickHandler.resetClicks);
+		
+	app.route('/api/:id/create')
+		.post(isLoggedIn, clickHandler.createPoll);
 };
