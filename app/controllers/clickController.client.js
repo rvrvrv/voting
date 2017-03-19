@@ -9,7 +9,6 @@
 
    //Retrieve and display all polls in DB
    function getAllPolls (data) {
-     console.log(data);
      allPolls.innerHTML = data.slice(1,-1);
    }
 

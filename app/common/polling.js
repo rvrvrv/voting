@@ -43,6 +43,7 @@ $(document).ready(() => {
 
 	//Save the new poll
 	$('.btn-save').click(() => {
+		$('.btn-save').prop('disabled', true);
 		let pollArr = $('.newPoll').serializeArray();
 		//First, validate user input
 		pollArr = checkPoll(pollArr);
@@ -64,8 +65,14 @@ $(document).ready(() => {
 	//Save poll to the database
 	function savePoll(obj) {
 	  $.post(`${appUrl}/api/:id/create`, obj)
-		.done(() => console.log('Success!'))
-		.fail(() => alert('An error has occurred. Please try again.'));
+		.done(() => {
+			$('.title-text').html('Poll Created!');
+			setTimeout(() => window.location.replace('/'), 1500);
+			})
+		.fail(() => {
+			alert('An error has occurred. Please try again.');
+			$('.btn-save').prop('disabled', false);
+			});
 	}
 
 

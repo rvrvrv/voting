@@ -45,14 +45,13 @@ function ClickHandler () {
 	};
 
 	this.createPoll = function (req, res) {
-		console.log(req.body);
 		var newPoll = new Polls(req.body);
 		newPoll
 			.save()
 			.then(function (err, result) {
-				if (err) throw err;
+				if (err) return res.json(err);
 				console.log(result);
-				res.json(result);
+				return res.json(result);
 			});
 	}
 }
