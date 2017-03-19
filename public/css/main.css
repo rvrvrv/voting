@@ -17,11 +17,6 @@
 
 /****** Main ******/
 
-* {
-	-webkit-transition: all 0.2s;
-	transition: all 0.2s;
-}
-
 body {
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
@@ -263,20 +258,10 @@ input {
 
 /****** Poll Lists ******/
 
-.all-polls {
+.all-polls, .user-polls {
 	margin: 30px auto;
-	width: 60%;
-}
-
-.user-polls {
-	margin: 30px auto;
-	width: 80%;
-}
-
-table {
-	width: 100%;
-	margin-top: -10px;
-	font-size: 1.1em;
+	width: 90%;
+	max-width: 720px;
 }
 
 th {
