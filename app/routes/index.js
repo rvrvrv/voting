@@ -55,12 +55,15 @@ module.exports = function (app, passport) {
 			failureRedirect: '/login'
 		}));
 		
+	//Load all polls on index page
 	app.route('/api/:id/load')
 		.get(isLoggedIn, clickHandler.getAllPolls);
-		
+
+	//Load one user's polls on profile page
 	app.route('/api/:id/loadOne')
 		.get(isLoggedIn, clickHandler.getUserPolls);
 
+	//Create a poll
 	app.route('/api/:id/create')
 		.post(isLoggedIn, clickHandler.createPoll);
 };
