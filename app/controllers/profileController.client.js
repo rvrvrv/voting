@@ -10,6 +10,7 @@
      userPolls.innerHTML += data.slice(1,-1);
    }
 
+   //Automatically show user's polls on profile page
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls));
    
    

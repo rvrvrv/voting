@@ -9,7 +9,8 @@
    function getAllPolls (data) {
      allPolls.innerHTML = data.slice(1,-1);
    }
-
+   
+   //Automatically show all polls on index page
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getAllPolls));
 
 })();
