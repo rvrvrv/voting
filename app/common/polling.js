@@ -47,7 +47,10 @@ $(document).ready(() => {
 		let pollArr = $('.newPoll').serializeArray();
 		//First, validate user input
 		pollArr = checkPoll(pollArr);
-		if (pollArr === 'fail') return;
+		if (pollArr === 'fail') {
+			$('.btn-save').prop('disabled', false);
+			return;
+		}
 		//If valid, create the poll object
 		let pollObj = {
 			creator: localStorage.getItem('id'),
@@ -64,7 +67,7 @@ $(document).ready(() => {
 
 	//Save poll to the database
 	function savePoll(obj) {
-	  $.post(`${appUrl}/api/:id/create`, obj)
+	  $.post('/api/:id/create', obj)
 		.done(() => {
 			$('.title-text').html('Poll Created!');
 			setTimeout(() => window.location.replace('/'), 1500);

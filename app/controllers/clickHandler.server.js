@@ -5,7 +5,7 @@ var Polls = require('../models/polls.js');
 
 function ClickHandler () {
 	
-	//Retrive and format all polls from DB
+	//Retrieve and format all polls from DB
 	this.getAllPolls = function (req, res) {
 		console.log('Querying the database...');
 		Polls
@@ -17,7 +17,21 @@ function ClickHandler () {
 				result.forEach((e) => {
 					formattedOutput += `<tr><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-comments'></i>&nbsp;&nbsp;${e.title}</a></td></tr>`;
 				});
-				console.log('AFTER: ' + formattedOutput);
+				res.json(formattedOutput);
+			});
+	};
+	
+	//Retrieve and format one user's polls from DB
+	this.getUserPolls = function (req, res) {
+		console.log('Querying the database...');
+		Polls
+			.find({creator: req.user.github.id}, { title: 1 })
+			.exec(function (err, result) {
+				if (err) throw err;
+				let formattedOutput = '';
+				result.forEach((e) => {
+					formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='delCtrl' href=''><i class='fa fa-2x fa-minus-circle'></i></a></td></tr>`;
+				});
 				res.json(formattedOutput);
 			});
 	};
