@@ -1,7 +1,6 @@
 'use strict';
 
 (function () {
-
    var userPolls = document.querySelector('#userPolls');
    var apiUrl = '/api/:id/loadOne';
 
@@ -14,12 +13,18 @@
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls));
    
    
-   // delLink.addEventListener('click', function () {
+   
+   window.onload=function(){
+   var delCtrl = document.querySelectorAll('.delCtrl');
+   console.log(delCtrl);
+   //delCtrl.addEventListener('click', tryDelete);
+   }
 
-   //    ajaxFunctions.ajaxRequest('DELETE', apiUrl, function () {
-   //       ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls);
-   //    });
-
-   // }, false);
+   function tryDelete () {
+      console.log('clicked');
+      //ajaxFunctions.ajaxRequest('DELETE', apiUrl, function () {
+      //   ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls);
+      //});
+   }
 
 })();

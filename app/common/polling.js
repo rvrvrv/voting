@@ -29,6 +29,20 @@ $(document).ready(() => {
 		return arr;
 	}
 
+	//Save poll to the database
+	function savePoll(obj) {
+	  $.post('/api/:id/create', obj)
+		.done(() => {
+			$('.title-text').html('Poll Created!');
+			setTimeout(() => window.location.replace('/'), 1500);
+			})
+		.fail(() => {
+			alert('An error has occurred. Please try again.');
+			$('.btn-save').prop('disabled', false);
+			});
+	}
+
+
 	//Add an option to the new poll
 	$('.btn-add').click(() => {
 		$('.create-poll').append('<tr><th></th><td><input input type="text" name="choice" placeholder="New Choice"></td></tr>');
@@ -64,22 +78,6 @@ $(document).ready(() => {
 		//Then, save the poll
 		savePoll(pollObj);
 	});
-
-	//Save poll to the database
-	function savePoll(obj) {
-	  $.post('/api/:id/create', obj)
-		.done(() => {
-			$('.title-text').html('Poll Created!');
-			setTimeout(() => window.location.replace('/'), 1500);
-			})
-		.fail(() => {
-			alert('An error has occurred. Please try again.');
-			$('.btn-save').prop('disabled', false);
-			});
-	}
-
-   $('.delCtrl').hover(function() {
-      console.log('clicked', this);
-   });
+	
 
 });
