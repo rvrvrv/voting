@@ -78,5 +78,8 @@ $(document).ready(() => {
 			});
 	}
 
+   $('.delCtrl').hover(function() {
+      console.log('clicked', this);
+   });
 
 });

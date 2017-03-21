@@ -14,18 +14,10 @@
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls));
    
    
-   // pollBtn.addEventListener('click', function () {
-   //    console.log('clicked');
-   //    ajaxFunctions.ajaxRequest('POST', apiUrl, function () {
-   //       ajaxFunctions.ajaxRequest('GET', apiUrl, updateClickCount);
-   //    });
-
-   // }, false);
-
-   // delBtn.addEventListener('click', function () {
+   // delLink.addEventListener('click', function () {
 
    //    ajaxFunctions.ajaxRequest('DELETE', apiUrl, function () {
-   //       ajaxFunctions.ajaxRequest('GET', apiUrl, updateClickCount);
+   //       ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls);
    //    });
 
    // }, false);

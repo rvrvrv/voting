@@ -231,6 +231,27 @@ td a {
 	color: #b00;
 }
 
+/****** Poll Creation ******/
+
+.create-poll {
+	width: 90%;
+	max-width: 720px;
+	margin: 10px auto 20px auto;
+	border-spacing: 3px;
+}
+
+.create-poll th {
+	width: 30%;
+	font-size: 1.2em;
+}
+
+input {
+	border: 3px solid #fff;
+	box-shadow: inset 0 0 5px #ddf;
+	font-size: 1.1em;
+	width: 100%;
+}
+
 /****** Profile ******/
 
 .github-profile {
