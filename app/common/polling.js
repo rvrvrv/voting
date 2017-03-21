@@ -31,14 +31,14 @@ $(document).ready(() => {
 
 	//Save poll to the database
 	function savePoll(obj) {
-	  $.post('/api/:id/create', obj)
-		.done(() => {
-			$('.title-text').html('Poll Created!');
-			setTimeout(() => window.location.replace('/'), 1500);
+		$.post('/api/:id/create', obj)
+			.done(() => {
+				$('.title-text').html('Poll Created!');
+				setTimeout(() => window.location.replace('/'), 1500);
 			})
-		.fail(() => {
-			alert('An error has occurred. Please try again.');
-			$('.btn-save').prop('disabled', false);
+			.fail(() => {
+				alert('An error has occurred. Please try again.');
+				$('.btn-save').prop('disabled', false);
 			});
 	}
 
@@ -73,11 +73,12 @@ $(document).ready(() => {
 		};
 		//Add all of the choices to the poll object
 		for (let i = 1; i < pollArr.length; i++) {
-			pollObj.choices.push({text: pollArr[i].value});
+			pollObj.choices.push({
+				text: pollArr[i].value
+			});
 		}
 		//Then, save the poll
 		savePoll(pollObj);
 	});
-	
 
 });

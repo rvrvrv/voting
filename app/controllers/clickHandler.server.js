@@ -30,7 +30,7 @@ function ClickHandler () {
 				if (err) throw err;
 				let formattedOutput = '';
 				result.forEach((e) => {
-					formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><button class='delCtrl'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
+					formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='delCtrl' href='javascript:;' onclick='tryDel();'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
 				});
 				res.json(formattedOutput);
 			});

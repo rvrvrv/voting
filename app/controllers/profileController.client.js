@@ -12,19 +12,13 @@
    //Automatically show user's polls on profile page
    ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls));
    
-   
-   
-   window.onload=function(){
-   var delCtrl = document.querySelectorAll('.delCtrl');
-   console.log(delCtrl);
-   //delCtrl.addEventListener('click', tryDelete);
-   }
-
-   function tryDelete () {
-      console.log('clicked');
-      //ajaxFunctions.ajaxRequest('DELETE', apiUrl, function () {
-      //   ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls);
-      //});
-   }
-
 })();
+
+//Delete a poll (from the profile page)
+function tryDel() {
+	console.log('clicked');
+	//ajaxFunctions.ajaxRequest('DELETE', apiUrl, function () {
+	//   ajaxFunctions.ajaxRequest('GET', apiUrl, getUserPolls);
+	//});
+}
+
