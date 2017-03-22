@@ -59,15 +59,16 @@ module.exports = function (app, passport) {
 	app.route('/api/:id/load')
 		.get(isLoggedIn, clickHandler.getAllPolls);
 
-	//Load one user's polls on profile page
-	app.route('/api/:id/loadOne')
-		.get(isLoggedIn, clickHandler.getUserPolls);
+	//Profile page routes
+	app.route('/api/:id/loadOne/:del?')
+		.get(isLoggedIn, clickHandler.getUserPolls) //Load one user's polls
+		.delete(isLoggedIn, function (req, res) { //Delete a poll
+			clickHandler.deletePoll(req.user.github.id, req.params.del, res);
+		});
 
 	//Create a poll
 	app.route('/api/:id/create')
 		.post(isLoggedIn, clickHandler.createPoll);
 		
-	//Delete a poll
-	app.route('/api/:id/delete')
-		.delete(isLoggedIn, clickHandler.deletePoll);
+
 };

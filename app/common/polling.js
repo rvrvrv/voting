@@ -67,7 +67,7 @@ $(document).ready(() => {
 		}
 		//If valid, create the poll object
 		let pollObj = {
-			creator: localStorage.getItem('id'),
+			creator: localStorage.getItem('userId'),
 			title: pollArr[0].value,
 			choices: []
 		};
