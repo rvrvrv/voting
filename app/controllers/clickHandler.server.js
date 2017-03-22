@@ -15,7 +15,7 @@ function ClickHandler() {
 				if (err) throw err;
 				let formattedOutput = '';
 				result.forEach((e) => {
-					formattedOutput += `<tr><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-comments'></i>&nbsp;&nbsp;${e.title}</a></td></tr>`;
+					formattedOutput += `<tr><td><a class='viewCtrl' href='/api/poll/${e._id}'><i class='fa fa-comments'></i>&nbsp;&nbsp;${e.title}</a></td></tr>`;
 				});
 				res.json(formattedOutput);
 			});
@@ -33,7 +33,7 @@ function ClickHandler() {
 				if (err) throw err;
 				let formattedOutput = '';
 				result.forEach((e) => {
-					formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='delCtrl' id='${e._id}' href='javascript:;' onclick='tryDel(this)'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
+					formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='/api/poll/${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='delCtrl' id='${e._id}' href='javascript:;' onclick='tryDel(this)'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
 				});
 				res.json(formattedOutput);
 			});
@@ -64,6 +64,20 @@ function ClickHandler() {
 
 	};
 
+	//Display one poll
+	this.showPoll = function(reqPollId, res) {
+		console.log(reqPollId);
+		Polls
+			.find({
+				_id: reqPollId
+			})
+			.exec(function (err, result) {
+				if (err) throw err;
+				let formattedOutput = result;
+				console.log(formattedOutput);
+				res.json(formattedOutput);
+			});
+	};
 
 	this.addClick = function(req, res) {
 		Users

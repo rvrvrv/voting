@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html>
+
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Voting App</title>
@@ -17,33 +18,9 @@
 </header>
 
 <body>
-	<div class="container">
-		<img class="title-img" src="/public/img/ballot.png" />
-		<br />
-		<p class="title-text">Create a Poll</p>
-	</div>
-	<div class="container">
-		<form class="newPoll">
-			<table class="create-poll">
-				<tr>
-					<th>Title/Question:</th>
-					<td><input type="text" name="title" value="Who is your favorite cartoon character?"></td>
-				</tr>
-				<tr>
-					<th>Choices:</th>
-					<td><input type="text" name="choice" value="Top Cat"></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td><input type="text" name="choice" value="Fred Flintstone"></td>
-				</tr>
-				<tr>
-					<th></th>
-					<td><input type="text" name="choice" value="Yogi Bear"></td>
-				</tr>
-			</table>
-		</form>
-
+<p class="title-text">Poll</p>
+	<div class="container chartHolder">
+		<div id="chart"></div>
 	</div>
 	<div class="btn-container">
 		<button class="btn btn-big btn-add">Add Choice</button>
@@ -55,7 +32,8 @@
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://use.fontawesome.com/21a9ccba03.js"></script>
+<script src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript" src="common/ajax-functions.js"></script>
 <script type="text/javascript" src="controllers/userController.client.js"></script>
-<script type="text/javascript" src="common/createPoll.js"></script>
+<script type="text/javascript" src="common/viewPoll.js"></script>
 </html>

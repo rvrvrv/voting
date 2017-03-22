@@ -31,7 +31,7 @@ $(document).ready(() => {
 
 	//Save poll to the database
 	function savePoll(obj) {
-		$.post('/api/:id/create', obj)
+		$.post('/api/:id/loadOne/', obj)
 			.done(() => {
 				$('.title-text').html('Poll Created!');
 				setTimeout(() => window.location.replace('/'), 1500);
