@@ -3,13 +3,15 @@
 var Users = require('../models/users.js');
 var Polls = require('../models/polls.js');
 
-function ClickHandler () {
-	
+function ClickHandler() {
+
 	//Retrieve and format all polls from DB
-	this.getAllPolls = function (req, res) {
+	this.getAllPolls = function(req, res) {
 		Polls
-			.find({}, { title: 1 })
-			.exec(function (err, result) {
+			.find({}, {
+				title: 1
+			})
+			.exec(function(err, result) {
 				if (err) throw err;
 				let formattedOutput = '';
 				result.forEach((e) => {
@@ -18,12 +20,16 @@ function ClickHandler () {
 				res.json(formattedOutput);
 			});
 	};
-	
+
 	//Retrieve and format one user's polls from DB
-	this.getUserPolls = function (req, res) {
+	this.getUserPolls = function(req, res) {
 		Polls
-			.find({creator: req.user.github.id}, { title: 1 })
-			.exec(function (err, result) {
+			.find({
+				creator: req.user.github.id
+			}, {
+				title: 1
+			})
+			.exec(function(err, result) {
 				if (err) throw err;
 				let formattedOutput = '';
 				result.forEach((e) => {
@@ -34,41 +40,46 @@ function ClickHandler () {
 	};
 
 	//Create a poll in the DB
-	this.createPoll = function (req, res) {
+	this.createPoll = function(req, res) {
 		var newPoll = new Polls(req.body);
 		newPoll
 			.save()
-			.then(function (err, result) {
+			.then(function(err, result) {
 				if (err) return res.json(err);
 				return res.json(result);
 			});
 	};
 
 	//Delete a poll in the DB
-	this.deletePoll = function (reqUser, reqPollId, res) {
+	this.deletePoll = function(reqUser, reqPollId, res) {
 		Polls
-			.remove({creator: reqUser, _id: reqPollId})
-			.exec(function(err, result) { 
+			.remove({
+				creator: reqUser,
+				_id: reqPollId
+			})
+			.exec(function(err, result) {
 				if (err) throw err;
 				res.json(result);
-				}
-			);
-			
+			});
+
 	};
-	
-	
-	this.addClick = function (req, res) {
+
+
+	this.addClick = function(req, res) {
 		Users
-			.findOneAndUpdate({ 'github.id': req.user.github.id }, { $inc: { 'nbrClicks.clicks': 1 } })
-			.exec(function (err, result) {
-					if (err) throw err;
-					res.json(result.nbrClicks);
+			.findOneAndUpdate({
+				'github.id': req.user.github.id
+			}, {
+				$inc: {
+					'nbrClicks.clicks': 1
 				}
-			);
+			})
+			.exec(function(err, result) {
+				if (err) throw err;
+				res.json(result.nbrClicks);
+			});
 	};
 
 }
 
 module.exports = ClickHandler;
-
-				
