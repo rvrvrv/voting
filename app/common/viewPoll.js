@@ -1,17 +1,19 @@
 /*jshint browser: true, esversion: 6*/
 /* global $, alert, console, localStorage */
 
+
 $(document).ready(() => {
 
 	//***********************
-	//Poll view controls
+	//Display the poll
 	//***********************
 
-	google.charts.load('current', {packages: ['corechart']});
-	google.charts.setOnLoadCallback(drawChart);
+	google.charts.load('visualization', '1', {
+		packages: ['corechart']
+	});
 
 	function drawChart() {
-		var data = google.visualization.arrayToDataTable([
+		let data = google.visualization.arrayToDataTable([
 			['Choices', 'Votes'],
 			['Work', 3],
 			['Eat', 6],
@@ -19,7 +21,7 @@ $(document).ready(() => {
 			['Work', 3],
 		]);
 
-		var options = {
+		let options = {
 			title: 'My Daily Activities',
 			animation: {
 				'duration': 500,
@@ -40,24 +42,11 @@ $(document).ready(() => {
 			pieHole: 0.5
 		};
 
-		var chart = new google.visualization.PieChart(document.getElementById('chart'));
+		let chart = new google.visualization.PieChart(document.getElementById('chart'));
 		chart.draw(data, options);
 	}
 
-
-	// The select handler. Call the chart's getSelection() method
-	function selectHandler() {
-		var selectedItem = chart.getSelection()[0];
-		if (selectedItem) {
-			var value = data.getValue(selectedItem.row, selectedItem.column);
-			alert('The user selected ' + value);
-		}
-	}
-
-	// Listen for the 'select' event, and call my function selectHandler() when
-	// the user selects something on the chart.
-	google.visualization.events.addListener(chart, 'select', selectHandler);
-
+	google.charts.setOnLoadCallback(drawChart);
 
 
 });

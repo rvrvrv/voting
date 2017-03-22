@@ -31,10 +31,10 @@ module.exports = function(app, passport) {
 			res.sendFile(path + '/public/create.html');
 		});
 
-	app.route('/poll')
-		.get(/*isLoggedIn,*/function(req, res) {
-			res.sendFile(path + '/public/poll.html');
-		});
+	// app.route('/poll')
+	// 	.get(/*isLoggedIn,*/ function(req, res) {
+	// 		res.sendFile(path + '/public/poll.html');
+	// 	});
 
 	app.route('/logout')
 		.get(function(req, res) {
@@ -62,8 +62,11 @@ module.exports = function(app, passport) {
 		}));
 
 	//Single poll routes
-	app.route('/api/:id/poll/:pollId')
-		.get(isLoggedIn, clickHandler.showPoll);
+	app.route('/poll/:pollId')
+		.get(isLoggedIn, function(req, res) {
+			clickHandler.showPoll(req.params.pollId, res);
+			res.sendFile(path + '/public/poll.html');
+		});
 
 
 	//Load all polls on index page
