@@ -70,9 +70,7 @@ function ClickHandler() {
 			.find( {_id: reqPollId} )
 			.exec(function (err, result) {
 				if (err) throw err;
-				let formattedOutput = result;
-				
-				return 'hi';
+				res.json(result);
 			});
 	};
 

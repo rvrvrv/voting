@@ -31,11 +31,6 @@ module.exports = function(app, passport) {
 			res.sendFile(path + '/public/create.html');
 		});
 
-	// app.route('/poll')
-	// 	.get(/*isLoggedIn,*/ function(req, res) {
-	// 		res.sendFile(path + '/public/poll.html');
-	// 	});
-
 	app.route('/logout')
 		.get(function(req, res) {
 			req.logout();
@@ -61,13 +56,20 @@ module.exports = function(app, passport) {
 			failureRedirect: '/login'
 		}));
 
-	//Single poll routes
+	//Single poll view page
 	app.route('/poll/:pollId')
 		.get(isLoggedIn, function(req, res) {
-			clickHandler.showPoll(req.params.pollId, res);
 			res.sendFile(path + '/public/poll.html');
 		});
-
+		
+	//Single poll routes
+	app.route('/api/:id/loadPoll/:pollId/:choice?')
+		.get(function(req, res) { //Show one poll
+			clickHandler.showPoll(req.params.pollId, res);
+		})
+		.post(function(req, res) { //Add option to poll
+			clickHandler.addChoice(req.user.github.id, req.params.choice, res); 
+		});
 
 	//Load all polls on index page
 	app.route('/api/:id/load')

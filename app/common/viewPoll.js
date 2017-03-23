@@ -48,5 +48,4 @@ $(document).ready(() => {
 
 	google.charts.setOnLoadCallback(drawChart);
 
-
 });

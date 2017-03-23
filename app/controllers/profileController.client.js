@@ -1,8 +1,11 @@
+/*jshint browser: true, esversion: 6*/
+/* global $, alert, console, localStorage, ajaxFunctions */
+
 'use strict';
-var apiUrl = '/api/:id/loadOne';
+var apiUrl = '/api/:id/loadPoll';
 
 //Retrieve and display one user's polls in DB
-function displayUserPolls(data) {
+function displaythePoll(data) {
    $('#userPolls').html('<tr><th>Question</th><th>View</th><th>Delete</th></tr>'
       + data.slice(1, -1));
 }
@@ -17,4 +20,4 @@ function tryDel(link) {
 }
 
 //Automatically show user's polls on profile page
-ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, displayUserPolls));
+ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, displaythePoll));
