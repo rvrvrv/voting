@@ -254,11 +254,11 @@ input {
 
 /****** Chart ******/
 
+
 #chart {
-	width: 720px;
-	height: 500px;
-	margin: -20px auto -60px auto;
-	
+	max-height: 600px;
+	max-width: 600px;
+	margin: 0 auto 30px auto;
 }
 
 /****** Profile ******/

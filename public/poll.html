@@ -18,23 +18,24 @@
 </header>
 
 <body>
-<p class="title-text">Poll</p>
-	<div class="container chartHolder">
-		<div id="chart"></div>
+	<p class="title-text">Poll</p>
+	<div id="chartHolder">
+		<canvas id="chart"></canvas>
 	</div>
-	<div class="btn-container">
-		<button class="btn btn-big btn-add">Add Choice</button>
-		<button class="btn btn-big btn-rm">Remove Choice</button>
-	</div>
-	<div class="btn-container">
-		<button type="submit" class="btn btn-big btn-save">Save</button>
-	</div>
+		<div class="btn-container">
+			<button class="btn btn-big btn-add">Add Choice</button>
+			<button class="btn btn-big btn-rm">Remove Choice</button>
+		</div>
+		<div class="btn-container">
+			<button type="submit" class="btn btn-big btn-save">Save</button>
+		</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://use.fontawesome.com/21a9ccba03.js"></script>
-<script src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script type="text/javascript" src="../common/ajax-functions.js"></script>
 <script type="text/javascript" src="../controllers/userController.client.js"></script>
 <script type="text/javascript" src="../controllers/pollController.client.js"></script>
 <script type="text/javascript" src="../common/viewPoll.js"></script>
+
 </html>

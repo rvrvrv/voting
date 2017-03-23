@@ -67,10 +67,49 @@ function ClickHandler() {
 	//Display one poll
 	this.showPoll = function(reqPollId, res) {
 		Polls
-			.find( {_id: reqPollId},{'_id': 0, '__v': 0, 'choices._id': 0} )
-			.exec(function (err, result) {
+			.find({
+				_id: reqPollId
+			}, {
+				'_id': 0,
+				'__v': 0,
+				'creator': 0,
+				'choices._id': 0
+			})
+			.exec(function(err, result) {
+				//Extract data from results
+				let choices = [];
+				let votes = [];
+				result[0].choices.forEach((e) => {
+					choices.push(e.text);
+					votes.push(e.votes);
+				});
+				//Format data for chart
+				let chartCode = {
+					type: 'pie',
+					data: {
+						labels: choices,
+						datasets: [{
+							data: votes,
+							backgroundColor: ['#aeffb2', '#46627f', '#9083e8',
+								'#ffe2ae', '#317f35', '#61adff', '#ffc661',
+								'#8bcc8e', '#808efa', '#ff9d61', '#aeffb2', 
+								'#46627f', '#9083e8', '#ffe2ae', '#317f35', 
+								'#61adff', '#ffc661', '#8bcc8e', '#808efa'
+							]
+						}]
+					},
+					options: {
+						title: {
+							display: true,
+							fontSize: 22,
+							fontColor: '#a03',
+							text: result[0].title
+						}
+					}
+				};
+
 				if (err) throw err;
-				res.json(result);
+				res.json(chartCode);
 			});
 	};
 
