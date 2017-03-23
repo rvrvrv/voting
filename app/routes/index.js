@@ -58,7 +58,7 @@ module.exports = function(app, passport) {
 
 	//Single poll view page
 	app.route('/poll/:pollId')
-		.get(isLoggedIn, function(req, res) {
+		.get(function(req, res) {
 			res.sendFile(path + '/public/poll.html');
 		});
 		
