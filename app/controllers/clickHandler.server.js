@@ -9,7 +9,7 @@ function ClickHandler() {
 	this.getAllPolls = function(req, res) {
 		Polls
 			.find({}, {
-				title: 1
+				'title': 1
 			})
 			.exec(function(err, result) {
 				if (err) throw err;
@@ -25,9 +25,9 @@ function ClickHandler() {
 	this.getUserPolls = function(req, res) {
 		Polls
 			.find({
-				creator: req.user.github.id
+				'creator': req.user.github.id
 			}, {
-				title: 1
+				'title': 1
 			})
 			.exec(function(err, result) {
 				if (err) throw err;
@@ -54,8 +54,8 @@ function ClickHandler() {
 	this.deletePoll = function(reqUser, reqPollId, res) {
 		Polls
 			.remove({
-				creator: reqUser,
-				_id: reqPollId
+				'creator': reqUser,
+				'_id': reqPollId
 			})
 			.exec(function(err, result) {
 				if (err) throw err;
@@ -67,7 +67,7 @@ function ClickHandler() {
 	//Display one poll
 	this.showPoll = function(reqPollId, res) {
 		Polls
-			.find( {_id: reqPollId} )
+			.find( {_id: reqPollId},{'_id': 0, '__v': 0, 'choices._id': 0} )
 			.exec(function (err, result) {
 				if (err) throw err;
 				res.json(result);
