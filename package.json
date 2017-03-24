@@ -1,11 +1,11 @@
 {
   "name": "voting",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Voting App Project for FreeCodeCamp",
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rvrvrv/voting"
+    "url": "https://github.com/rvrvrv/voting"
   },
   "scripts": {
     "start": "node server.js"
