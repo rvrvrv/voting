@@ -69,8 +69,12 @@ header p {
 	color: #c04;
 }
 
+#menu-divide {
+	color: #fff;
+	display: inline;
+}
+
 header a~p {
-	margin: 0;
 	padding: 0;
 	display: inline;
 	color: #ECEFF1;
@@ -317,12 +321,6 @@ span {
 
 .github-profile .menu:active {
 	color: #a03;
-}
-
-#menu-divide {
-	color: #fff;
-	display: inline;
-	margin: 0;
 }
 
 .public {
