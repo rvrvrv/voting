@@ -109,11 +109,11 @@ function ClickHandler() {
 						labels: choices,
 						datasets: [{
 							data: votes,
-							backgroundColor: ['#aeffb2', '#46627f', '#9083e8',
-								'#ffe2ae', '#317f35', '#61adff', '#ffc661',
-								'#8bcc8e', '#808efa', '#ff9d61', '#aeffb2',
-								'#46627f', '#9083e8', '#ffe2ae', '#317f35',
-								'#61adff', '#ffc661', '#8bcc8e', '#808efa'
+							backgroundColor: ['#8bcc8e', '#46627f', '#9083e8',
+								'#ff7322', '#317f35', '#61adff', '#80456b',
+								'#ffc661', '#aeffb2', '#ff9d61', '#bedda2',
+								'#b6627f', '#9083e8', '#bbe2ae', '#ca7f35',
+								'#aaaddd', '#ddc352', '#bbaafe', '#c08fca'
 							]
 						}]
 					},

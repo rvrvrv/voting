@@ -5,13 +5,16 @@
 $(document).ready(() => {
    const pollId = window.location.pathname.slice(6);
    const apiUrl = '/api/:id/loadPoll/' + pollId;
+   const ctx = $('#chart');
+   let chartCode = {};
+   let chart; 
+   
+   //Chart.js custom properties
    Chart.defaults.global.elements.arc.borderWidth = 5;
    Chart.defaults.global.defaultFontSize = 16;
    Chart.defaults.global.hover.animationDuration = 600;
    Chart.defaults.global.tooltips.bodyFontSize = 18;
-   const ctx = $('#chart');
-   let chartCode = {};
-   let chart; 
+   Chart.defaults.global.legend.position = 'bottom';
 
    //Display the poll as a chart
    function displayPoll(data) {
