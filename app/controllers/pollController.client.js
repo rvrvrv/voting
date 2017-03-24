@@ -7,11 +7,12 @@ $(document).ready(() => {
    const pollId = window.location.pathname.slice(6);
    const apiUrl = '/api/:id/loadPoll/' + pollId;
    const ctx = $('#chart');
+   let chartCode = {};
 
 
    //Display the poll as a chart
    function displayPoll(data) {
-      let chartCode = JSON.parse(data);
+      chartCode = JSON.parse(data);
       console.log(chartCode);
       //Paint the chart
       var chart = new Chart(ctx, chartCode);
@@ -30,12 +31,29 @@ $(document).ready(() => {
          ajaxFunctions.ajaxRequest('POST', `${apiUrl}/${choice}`, function() {
             ajaxFunctions.ajaxRequest('GET', apiUrl, displayPoll);
          });
+         console.log(choice);
       }
    }
    
+   //Check for valid new choice
+   function checkChoice(choice) {
+      //Trim whitespace
+      let formattedChoice = choice.trim();
+      //Check for blank / default choice
+      if (formattedChoice !== '' && formattedChoice !== "Your choice")
+         return addChoice(formattedChoice);
+      else return alert("Please enter a valid choice.");
+   }
+   
+   
    $('.btn-add').click(() => {
-      console.log(window.localStorage.getItem('rv-voting-userId'));
-   })
+      //Ensure user is logged in
+      if (window.localStorage.getItem('rv-voting-userId'))
+         var newChoice = prompt(chartCode.options.title.text + 
+         "\n\nAdd a new choice below:", "Your choice");
+         checkChoice(newChoice);
+         
+   });
    
    
    

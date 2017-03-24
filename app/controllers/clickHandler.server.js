@@ -64,11 +64,30 @@ function ClickHandler() {
 
 	};
 
+	//Add an option to one poll
+	this.addChoice = function(reqPollId, reqChoice, res) {
+		Polls
+			.findOneAndUpdate({
+				'_id': reqPollId
+			}, {
+				$addToSet: {
+					'choices': {
+						'text': reqChoice,
+						'votes': 0
+					}
+				}
+			})
+			.exec(function(err, result) {
+				if (err) throw err;
+				res.json(result);
+			});
+	};
+
 	//Display one poll
 	this.showPoll = function(reqPollId, res) {
 		Polls
 			.find({
-				_id: reqPollId
+				'_id': reqPollId
 			}, {
 				'_id': 0,
 				'__v': 0,
@@ -92,8 +111,8 @@ function ClickHandler() {
 							data: votes,
 							backgroundColor: ['#aeffb2', '#46627f', '#9083e8',
 								'#ffe2ae', '#317f35', '#61adff', '#ffc661',
-								'#8bcc8e', '#808efa', '#ff9d61', '#aeffb2', 
-								'#46627f', '#9083e8', '#ffe2ae', '#317f35', 
+								'#8bcc8e', '#808efa', '#ff9d61', '#aeffb2',
+								'#46627f', '#9083e8', '#ffe2ae', '#317f35',
 								'#61adff', '#ffc661', '#8bcc8e', '#808efa'
 							]
 						}]
@@ -112,6 +131,8 @@ function ClickHandler() {
 				res.json(chartCode);
 			});
 	};
+
+
 
 	this.addClick = function(req, res) {
 		Users
