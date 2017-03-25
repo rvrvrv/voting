@@ -45,10 +45,14 @@ $(document).ready(() => {
    function checkChoice(choice) {
       //Trim whitespace
       let formattedChoice = choice.trim();
-      //Check for blank / default choice
-      if (formattedChoice !== '' && formattedChoice !== "Your choice")
-         return addChoice(formattedChoice);
-      else return alert("Please enter a valid choice.");
+      //Convert current choices to lower-case for comparison
+      let lowerCaseArr = chartCode.data.labels.map(e => e.toLowerCase());
+      
+      //Check for blank / default / duplicate choice
+      if (formattedChoice == '' || formattedChoice == "Your choice" ||
+      lowerCaseArr.includes(formattedChoice.toLowerCase()))
+         return alert('Please enter a valid choice.');
+      else return addChoice(formattedChoice);
    }
 
    //Button for adding a poll choice
@@ -56,7 +60,7 @@ $(document).ready(() => {
       //Ensure user is logged in
       if (window.localStorage.getItem('rv-voting-userId'))
          var newChoice = prompt(chartCode.options.title.text +
-            "\n\nAdd a new choice below:", "Your choice");
+            '\n\nAdd a new choice below:', 'Your choice');
       checkChoice(newChoice);
 
    });
