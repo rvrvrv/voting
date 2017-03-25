@@ -95,6 +95,7 @@ header a~p {
 	width: 225px;
 	padding: 7px 5px;
 	margin-top: 10px;
+	text-transform: uppercase;
 }
 
 .btn p {
