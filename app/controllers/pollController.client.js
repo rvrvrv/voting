@@ -9,15 +9,18 @@ $(document).ready(() => {
    let chartCode = {};
    let chart; 
    
-   //Chart.js custom properties
-   Chart.defaults.global.elements.arc.borderWidth = 5;
-   Chart.defaults.global.defaultFontSize = 16;
-   Chart.defaults.global.hover.animationDuration = 600;
-   Chart.defaults.global.tooltips.bodyFontSize = 18;
-   Chart.defaults.global.legend.position = 'bottom';
+
+
+   function vote(e, item) {
+      console.log(e);
+      console.log(item);
+   }
 
    //Display the poll as a chart
    function displayPoll(data) {
+      //If chart already exists, destroy it for new one
+      if (chart) chart.destroy();
+      
       chartCode = JSON.parse(data);
       console.log(chartCode);
       //Paint the chart

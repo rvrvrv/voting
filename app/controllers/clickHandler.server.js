@@ -118,6 +118,18 @@ function ClickHandler() {
 						}]
 					},
 					options: {
+						defaultFontSize: 16,
+						elements: {
+							arc: {
+								borderWidth: 5
+							}
+						},
+						hover: {
+							animationDuration: 750
+						},
+						tooltips: {
+							bodyFontSize: 18
+						},
 						title: {
 							display: true,
 							fontSize: 22,
