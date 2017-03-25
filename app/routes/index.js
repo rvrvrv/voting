@@ -71,11 +71,11 @@ module.exports = function(app, passport) {
 			clickHandler.addChoice(req.params.pollId, req.params.choice, res); 
 		});
 
-	//Load all polls on index page
+	//Load all polls on login & index pages
 	app.route('/api/:id/load')
-		.get(isLoggedIn, clickHandler.getAllPolls);
+		.get(clickHandler.getAllPolls);
 
-	//User page routes
+	//Logged-in user poll operations
 	app.route('/api/:id/loadOne/:del?')
 		.get(isLoggedIn, clickHandler.getUserPolls) //Load one user's polls
 		.post(isLoggedIn, clickHandler.createPoll) //Create a poll
