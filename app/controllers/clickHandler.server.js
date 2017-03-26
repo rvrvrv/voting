@@ -144,7 +144,25 @@ function ClickHandler() {
 			});
 	};
 
-
+	//Vote for choice in poll
+	this.vote = function(reqPollId, reqChoice, res) {
+		console.log(reqPollId, reqChoice);
+		Polls
+			.findOneAndUpdate({
+				'_id': reqPollId
+			}, {
+				$inc: {
+					'choices.reqChoice': {
+						'text': reqChoice,
+						'votes': 1
+					}
+				}
+			})
+			.exec(function(err, result) {
+				if (err) throw err;
+				res.json(result);
+			});
+	};
 
 	this.addClick = function(req, res) {
 		Users

@@ -68,7 +68,10 @@ module.exports = function(app, passport) {
 			clickHandler.showPoll(req.params.pollId, res);
 		})
 		.post(function(req, res) { //Add option to poll
-			clickHandler.addChoice(req.params.pollId, req.params.choice, res); 
+			clickHandler.addChoice(req.params.pollId, req.params.choice, res);
+		})
+		.put(function(req, res) { //Vote for option on poll
+			clickHandler.vote(req.params.pollId, req.params.choice, res);
 		});
 
 	//Load all polls on login & index pages
