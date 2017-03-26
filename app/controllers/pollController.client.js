@@ -12,6 +12,7 @@ $(document).ready(() => {
    //Apply user's vote
    function vote(choice) {
       console.log(choice);
+      $('#noVotes').hide();
       ajaxFunctions.ajaxRequest('PUT', `${apiUrl}/${choice}`, function() {
          ajaxFunctions.ajaxRequest('GET', apiUrl, displayPoll);
       });
@@ -21,18 +22,19 @@ $(document).ready(() => {
    function displayPoll(data) {
       //If chart already exists, destroy it for new one
       if (chart) chart.destroy();
-
+      
+      //Extract chart data and options from JSON
       chartCode = JSON.parse(data);
-      console.log(chartCode);
+      
       //Paint the chart
       chart = new Chart(ctx, chartCode);
 
       //Notify the user if no one has voted
       if (chartCode.data.datasets[0].data.every(e => e === 0))
-         $('#noVotes').fadeIn();
-
-      $('#choices').html('');
+         $('#noVotes').show();
+         
       //Add choices to drop-down box
+      $('#choices').html('');
       chartCode.data.labels.forEach(e => {
          $('#choices').append(`<option value="${e}">${e}</option>`);
       });

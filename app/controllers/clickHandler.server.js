@@ -125,7 +125,7 @@ function ClickHandler() {
 							}
 						},
 						hover: {
-							animationDuration: 750
+							animationDuration: 700
 						},
 						tooltips: {
 							bodyFontSize: 18
@@ -149,17 +149,16 @@ function ClickHandler() {
 		console.log(reqPollId, reqChoice);
 		Polls
 			.findOneAndUpdate({
-				'_id': reqPollId
+				'_id': reqPollId,
+				'choices.text': reqChoice
 			}, {
 				$inc: {
-					'choices.reqChoice': {
-						'text': reqChoice,
-						'votes': 1
-					}
+					'choices.$.votes': 1
 				}
 			})
 			.exec(function(err, result) {
 				if (err) throw err;
+				console.log(result);
 				res.json(result);
 			});
 	};
