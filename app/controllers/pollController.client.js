@@ -74,7 +74,7 @@ $(document).ready(() => {
    }
 
    //Button for adding a poll choice
-   $('.btn-add').click(() => {
+   $('#addChoiceBtn').click(() => {
       //Ensure user is logged in
       if (userId)
          var newChoice = prompt(chartCode.options.title.text +
@@ -85,7 +85,7 @@ $(document).ready(() => {
    });
 
    //Vote button
-   $('.btn-vote').click(() => {
+   $('#voteBtn').click(() => {
       let choice = $('#choices').val();
 
       //Duplicate vote check

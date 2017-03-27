@@ -112,7 +112,7 @@ function ClickHandler() {
 							backgroundColor: ['#8bcc8e', '#46627f', '#9083e8',
 								'#ff7322', '#317f35', '#61adff', '#80456b',
 								'#ffc661', '#aeffb2', '#ff9d61', '#bedda2',
-								'#b6627f', '#9083e8', '#bbe2ae', '#ca7f35',
+								'#c8849f', '#9083e8', '#bbe2ae', '#ca7f35',
 								'#aaaddd', '#ddc352', '#bbaafe', '#c08fca'
 							]
 						}]

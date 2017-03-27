@@ -150,7 +150,6 @@ header a~p {
 	background: #111;
 	color: #bbb;
 	pointer-events: none;
-	
 }
 
 .btn:focus {
@@ -172,7 +171,8 @@ header a~p {
 	margin-bottom: 20px;
 }
 
-.btn-add, .btn-rm {
+.btn-add,
+.btn-rm {
 	margin: 0 20px 30px 20px;
 }
 
@@ -180,17 +180,18 @@ header a~p {
 	background: #080;
 }
 
-.btn-rm {
-	background: #900;
-}
-
 .btn-add:hover {
 	background: #0a0;
+}
+
+.btn-rm {
+	background: #900;
 }
 
 .btn-rm:hover {
 	background: #b00;
 }
+
 
 /****** Poll Lists ******/
 
@@ -210,7 +211,8 @@ table {
 	text-align: left;
 }
 
-th, td {
+th,
+td {
 	padding: 1%;
 }
 
@@ -240,6 +242,7 @@ td a {
 	color: #b00;
 }
 
+
 /****** Poll Creation ******/
 
 .create-poll {
@@ -261,8 +264,8 @@ input {
 	width: 100%;
 }
 
-/****** Poll Page ******/
 
+/****** Poll Page ******/
 
 #chart {
 	width: 30%;
@@ -286,12 +289,12 @@ input {
 .bottom-row {
 	position: fixed;
 	bottom: 0;
-	text-align: center;
 }
 
-.bottom-row .btn-add {
+#addChoiceBtn {
 	margin: 0 auto;
 }
+
 
 /****** Profile ******/
 
@@ -339,4 +342,20 @@ span {
 
 .private {
 	display: none;
+}
+
+
+/****** For mobile devices ******/
+
+@media screen and (max-width: 768px) {
+	#choices,
+	.btn-big {
+		transform: scale(0.9);
+	}
+	.btn-big {
+		margin-bottom: 0;
+	}
+	#addChoiceBtn {
+		padding: 3px;
+	}
 }
