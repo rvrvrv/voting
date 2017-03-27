@@ -4,6 +4,7 @@
 
 $(document).ready(() => {
    const pollId = window.location.pathname.slice(6);
+   const userId = window.localStorage.getItem('rv-voting-userId') || null;
    const apiUrl = '/api/:id/loadPoll/' + pollId;
    const ctx = $('#chart');
    let chartCode = {};
@@ -11,7 +12,6 @@ $(document).ready(() => {
 
    //Apply user's vote
    function vote(choice) {
-      console.log(choice);
       $('#noVotes').hide();
       ajaxFunctions.ajaxRequest('PUT', `${apiUrl}/${choice}`, function() {
          ajaxFunctions.ajaxRequest('GET', apiUrl, displayPoll);
@@ -67,7 +67,7 @@ $(document).ready(() => {
    //Button for adding a poll choice
    $('.btn-add').click(() => {
       //Ensure user is logged in
-      if (window.localStorage.getItem('rv-voting-userId'))
+      if (userId)
          var newChoice = prompt(chartCode.options.title.text +
             '\n\nAdd a new choice below:', 'Your choice');
       validateChoice(newChoice);
@@ -77,6 +77,15 @@ $(document).ready(() => {
    //Vote button
    $('.btn-vote').click(() => {
       let choice = $('#choices').val();
+      
+      //Duplicate vote check
+      //If user is logged in
+      if (userId) {
+         console.log(userId);
+      } else { console.log('not logged in'); }
+      
+      
+      
       if (confirm('Please confirm your vote for: ' + choice))
          vote(choice);
    });
