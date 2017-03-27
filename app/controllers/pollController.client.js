@@ -7,18 +7,19 @@ $(document).ready(() => {
    const userId = localStorage.getItem('rv-voting-userId') || null;
    const apiUrl = '/api/:id/loadPoll/' + pollId;
    const ctx = $('#chart');
-   let pollsVoted = localStorage.getItem(userId) || localStorage.getItem('anonVotes');
+   let pollsVoted = localStorage.getItem(userId) || localStorage.getItem('anonVotes') || '';
    let chartCode = {};
    let chart;
-
+   
    //Apply user's vote
    function vote(choice) {
       //Hide 'no one has voted yet' message (if visible)
       $('#noVotes').hide();
       
       //Add poll to localStorage (to prevent duplicate votes)
-      if (userId) localStorage.setItem(userId, pollsVoted + '|' + pollId);
-      else localStorage.setItem('anonVotes', pollsVoted + '|' + pollId);
+      pollsVoted += `|${pollId}`;
+      if (userId) localStorage.setItem(userId, pollsVoted);
+      else localStorage.setItem('anonVotes', pollsVoted);
       
       //Add vote to DB and reload chart
       ajaxFunctions.ajaxRequest('PUT', `${apiUrl}/${choice}`, function() {
@@ -66,7 +67,7 @@ $(document).ready(() => {
       let lowerCaseArr = chartCode.data.labels.map(e => e.toLowerCase());
 
       //Check for blank / default / duplicate choice
-      if (formattedChoice == '' || formattedChoice == "Your choice" ||
+      if (formattedChoice == '' || formattedChoice == 'Your choice' ||
          lowerCaseArr.includes(formattedChoice.toLowerCase()))
          return alert('Please enter a valid choice.');
       else return addChoice(formattedChoice);
@@ -78,31 +79,20 @@ $(document).ready(() => {
       if (userId)
          var newChoice = prompt(chartCode.options.title.text +
             '\n\nAdd a new choice below:', 'Your choice');
-      validateChoice(newChoice);
+      //If input is not blank & user doesn't cancel, continue to validation
+      if (newChoice) validateChoice(newChoice);
 
    });
 
    //Vote button
    $('.btn-vote').click(() => {
       let choice = $('#choices').val();
-      
-      //Duplicate vote check
-      //For logged-in users
-      if (userId) {
-         if (localStorage.getItem(userId).includes(pollId))
-            return alert('You have already voted on this poll.');
-         else {
-            pollsVoted += pollId;
-         localStorage.setItem(userId, pollsVoted);
-         console.log(localStorage.getItem(userId));
-         }
-      } 
-      //For anonymous users
-      else { 
-         console.log('not logged in'); 
-         
-      }
 
+      //Duplicate vote check
+      if (pollsVoted.includes(pollId)) 
+         return alert('You have already voted on this poll.');
+
+      //Confirm user's choice
       if (confirm('Please confirm your vote for: ' + choice))
          vote(choice);
    });
