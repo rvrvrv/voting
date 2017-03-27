@@ -22,6 +22,7 @@
 }
 
 body {
+	background: #EEE url('https://i.imgsafe.org/92fe656655.png');
 	font-family: 'Roboto', sans-serif;
 	font-size: 16px;
 	text-align: center;
@@ -217,11 +218,7 @@ td {
 }
 
 th {
-	background: #DDF;
-}
-
-tr {
-	background: #eee;
+	background: #ddf;
 }
 
 td a {
@@ -258,17 +255,16 @@ td a {
 }
 
 input {
-	border: 3px solid #fff;
-	box-shadow: inset 0 0 5px #ddf;
+	border: 1px solid #eee;
+	box-shadow: inset 0 0 15px #aaa;
 	font-size: 1.1em;
+	padding: 10px;
 	width: 100%;
 }
-
 
 /****** Poll Page ******/
 
 #chart {
-	width: 30%;
 	max-height: 500px;
 	max-width: 500px;
 	margin: 0 auto 30px auto;
@@ -301,9 +297,8 @@ input {
 .github-profile {
 	width: 300px;
 	height: 150px;
-	border-radius: 3px;
+	border-radius: 10px;
 	margin: 5px auto;
-	background: #EEE;
 	color: #000;
 }
 

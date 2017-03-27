@@ -118,21 +118,27 @@ function ClickHandler() {
 						}]
 					},
 					options: {
-						defaultFontSize: 16,
 						elements: {
 							arc: {
+								borderColor: '#eee',
 								borderWidth: 5
+								
 							}
 						},
 						hover: {
 							animationDuration: 700
+						},
+						legend: {
+							labels: {
+								fontSize: 16 
+								}
 						},
 						tooltips: {
 							bodyFontSize: 18
 						},
 						title: {
 							display: true,
-							fontSize: 22,
+							fontSize: 24,
 							fontColor: '#a03',
 							text: result[0].title
 						}
