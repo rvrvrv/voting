@@ -1,18 +1,26 @@
 /*jshint browser: true, esversion: 6*/
-/* global $, alert, console, ajaxFunctions, Chart */
+/* global $, alert, console, ajaxFunctions, Chart, location, localStorage */
 'use strict';
 
 $(document).ready(() => {
-   const pollId = window.location.pathname.slice(6);
-   const userId = window.localStorage.getItem('rv-voting-userId') || null;
+   const pollId = location.pathname.slice(6);
+   const userId = localStorage.getItem('rv-voting-userId') || null;
    const apiUrl = '/api/:id/loadPoll/' + pollId;
    const ctx = $('#chart');
+   let pollsVoted = localStorage.getItem(userId) || localStorage.getItem('anonVotes');
    let chartCode = {};
    let chart;
 
    //Apply user's vote
    function vote(choice) {
+      //Hide 'no one has voted yet' message (if visible)
       $('#noVotes').hide();
+      
+      //Add poll to localStorage (to prevent duplicate votes)
+      if (userId) localStorage.setItem(userId, pollsVoted + '|' + pollId);
+      else localStorage.setItem('anonVotes', pollsVoted + '|' + pollId);
+      
+      //Add vote to DB and reload chart
       ajaxFunctions.ajaxRequest('PUT', `${apiUrl}/${choice}`, function() {
          ajaxFunctions.ajaxRequest('GET', apiUrl, displayPoll);
       });
@@ -79,13 +87,22 @@ $(document).ready(() => {
       let choice = $('#choices').val();
       
       //Duplicate vote check
-      //If user is logged in
+      //For logged-in users
       if (userId) {
-         console.log(userId);
-      } else { console.log('not logged in'); }
-      
-      
-      
+         if (localStorage.getItem(userId).includes(pollId))
+            return alert('You have already voted on this poll.');
+         else {
+            pollsVoted += pollId;
+         localStorage.setItem(userId, pollsVoted);
+         console.log(localStorage.getItem(userId));
+         }
+      } 
+      //For anonymous users
+      else { 
+         console.log('not logged in'); 
+         
+      }
+
       if (confirm('Please confirm your vote for: ' + choice))
          vote(choice);
    });

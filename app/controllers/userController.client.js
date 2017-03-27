@@ -1,5 +1,5 @@
 /*jshint browser: true, esversion: 6*/
-/* global $, alert, console, ajaxFunctions */
+/* global $, alert, console, ajaxFunctions, localStorage */
 'use strict';
 
 (function() {
@@ -15,7 +15,7 @@
 
 	//When logging out, remove saved ID
 	document.getElementById('logoutLink')
-		.addEventListener('click', () => window.localStorage.removeItem('rv-voting-userId'));
+		.addEventListener('click', () => localStorage.removeItem('rv-voting-userId'));
 
 	ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET', apiUrl, function(data) {
 		//If user is logged in, display private menu and options
@@ -24,7 +24,7 @@
 			$('.private').show();
 			var userObject = JSON.parse(data);
 			//Save logged-in ID for session
-			window.localStorage.setItem('rv-voting-userId', userObject.id);
+			localStorage.setItem('rv-voting-userId', userObject.id);
 			//Display user info where applicable
 			if (userObject.displayName) updateHtmlElement(userObject, displayName, 'displayName');
 			else updateHtmlElement(userObject, displayName, 'username');
