@@ -2,6 +2,7 @@
 
 var Users = require('../models/users.js');
 var Polls = require('../models/polls.js');
+var randomColor = () => '#' + Math.random().toString(16).substr(-6);
 
 function ClickHandler() {
 
@@ -113,7 +114,9 @@ function ClickHandler() {
 								'#ff7322', '#317f35', '#61adff', '#80456b',
 								'#ffc661', '#aeffb2', '#ff9d61', '#bedda2',
 								'#c8849f', '#9083e8', '#bbe2ae', '#ca7f35',
-								'#aaaddd', '#ddc352', '#bbaafe', '#c08fca'
+								'#aaaddd', '#ddc352', '#bbaafe', '#c08fca',
+								randomColor(), randomColor(), randomColor(), 
+								randomColor(), randomColor(), randomColor()
 							]
 						}]
 					},
@@ -122,7 +125,7 @@ function ClickHandler() {
 							arc: {
 								borderColor: '#eee',
 								borderWidth: 5
-								
+
 							}
 						},
 						hover: {
@@ -130,8 +133,8 @@ function ClickHandler() {
 						},
 						legend: {
 							labels: {
-								fontSize: 16 
-								}
+								fontSize: 16
+							}
 						},
 						tooltips: {
 							bodyFontSize: 18
@@ -152,7 +155,6 @@ function ClickHandler() {
 
 	//Vote for choice in poll
 	this.vote = function(reqPollId, reqChoice, res) {
-		console.log(reqPollId, reqChoice);
 		Polls
 			.findOneAndUpdate({
 				'_id': reqPollId,

@@ -1,3 +1,5 @@
+/*jshint browser: true, esversion: 6*/
+/* global $, ajaxFunctions */
 'use strict';
 var apiUrl = '/api/:id/loadOne';
 

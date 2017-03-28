@@ -1,5 +1,5 @@
 /*jshint browser: true, esversion: 6*/
-/* global $, alert, console */
+/* global $ */
 
 $(document).ready(() => {
 

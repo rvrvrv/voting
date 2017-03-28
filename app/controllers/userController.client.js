@@ -1,5 +1,5 @@
 /*jshint browser: true, esversion: 6*/
-/* global $, alert, console, ajaxFunctions, localStorage */
+/* global $, ajaxFunctions, localStorage */
 'use strict';
 
 (function() {
