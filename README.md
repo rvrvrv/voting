@@ -1,5 +1,5 @@
 # Voting App
-#### Project for FreeCodeCamp
+#### Project for FreeCodeCamp built on [Clementine.js FCC Boilerplate](https://github.com/johnstonbl01/clementinejs-fcc)
 
 ## Build a Voting App
 ### Objective: Build a full stack JavaScript app and deploy it to Heroku.
