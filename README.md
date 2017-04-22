@@ -1,9 +1,7 @@
 # Voting App
 Voting App Project for FreeCodeCamp built on [Clementine.js FCC Boilerplate](https://github.com/johnstonbl01/clementinejs-fcc)
 
-**Objective**: Build a full stack JavaScript app and deploy it to Heroku.
-
-Live app: https://rv-voting.herokuapp.com
+**Live App**: https://rv-voting.herokuapp.com
 
 ## User Stories:
 1. As an authenticated user, I can keep my polls and come back later to access them.
