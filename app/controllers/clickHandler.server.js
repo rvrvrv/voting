@@ -170,22 +170,6 @@ function ClickHandler() {
 				res.json(result);
 			});
 	};
-
-	this.addClick = function(req, res) {
-		Users
-			.findOneAndUpdate({
-				'github.id': req.user.github.id
-			}, {
-				$inc: {
-					'nbrClicks.clicks': 1
-				}
-			})
-			.exec(function(err, result) {
-				if (err) throw err;
-				res.json(result.nbrClicks);
-			});
-	};
-
 }
 
 module.exports = ClickHandler;
