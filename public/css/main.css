@@ -308,12 +308,15 @@ canvas {
 }
 
 .github-profile p {
-	margin: 0 0 0 12px;
-	text-align: left;
+	margin: 0;
 }
 
 .profile-value {
 	font-weight: 400;
+}
+
+.profile-menu {
+	margin-top: 10px;
 }
 
 span {
