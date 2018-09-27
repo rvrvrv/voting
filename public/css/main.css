@@ -14,12 +14,7 @@
 	src: local('Roboto Medium'), local('Roboto-Medium'), url('../fonts/Roboto-Medium.ttf') format('truetype');
 }
 
-
 /****** Main ******/
-
-* {
-	transition: 0.2s all;
-}
 
 body {
 	background: #eee url('https://i.imgsafe.org/92fe656655.png');
@@ -44,7 +39,6 @@ p {
 	padding: 0;
 }
 
-
 /****** Header  ******/
 
 header p {
@@ -52,10 +46,11 @@ header p {
 }
 
 .menu {
-	text-decoration: none;
-	padding: 6px;
-	margin: 0;
 	color: #727272;
+	margin: 0;
+	padding: 6px;
+	text-decoration: none;
+	transition: color .2s;
 }
 
 .menu:visited {
@@ -70,7 +65,7 @@ header p {
 	color: #c04;
 }
 
-#menu-divide {
+.menu-divide {
 	color: #fff;
 	display: inline;
 }
@@ -81,10 +76,9 @@ header a~p {
 	color: #00b;
 }
 
-#display-name {
+header > p > span {
 	font-weight: 400;
 }
-
 
 /****** Login ******/
 
@@ -92,7 +86,7 @@ header a~p {
 	margin: 86px auto 0 auto;
 }
 
-#login-btn {
+.btn-login {
 	width: 225px;
 	padding: 7px 5px;
 	margin-top: 10px;
@@ -108,7 +102,6 @@ header a~p {
 	float: left;
 	margin-left: 10px
 }
-
 
 /****** Logo Div ******/
 
@@ -126,7 +119,6 @@ header a~p {
 	color: #a03;
 }
 
-
 /****** Buttons ******/
 
 .btn-container {
@@ -134,15 +126,16 @@ header a~p {
 }
 
 .btn {
-	margin: 5px;
-	color: #fff;
 	background: #009;
-	display: inline-block;
 	border: 0;
-	font-size: 14px;
 	border-radius: 6px;
+	color: #fff;
+	display: inline-block;
+	font-size: 14px;
+	margin: 5px;
 	padding: 10px 5px;
 	min-width: 120px;
+	transition: background .2s, box-shadow .2s, color .2s;
 }
 
 .btn:disabled {
@@ -171,6 +164,7 @@ header a~p {
 
 .btn-add {
 	background: #080;
+	transition: background .2s;
 }
 
 .btn-add:hover {
@@ -179,12 +173,12 @@ header a~p {
 
 .btn-rm {
 	background: #900;
+	transition: background .2s;
 }
 
 .btn-rm:hover {
 	background: #b00;
 }
-
 
 /****** Poll Lists ******/
 
@@ -199,12 +193,12 @@ table {
 	width: auto;
 }
 
-#allPolls {
+.table-polls {
 	width: 80%;
 	max-width: 500px;
 }
 
-#allPolls td {
+.table-polls td {
 	text-align: left;
 }
 
@@ -222,19 +216,23 @@ td a {
 	text-decoration: none !important;
 }
 
-.viewCtrl:visited,
-.delCtrl:visited {
+.ctrl-view,
+.ctrl-del {
+	transition: color .2s;
+}
+
+.ctrl-view:visited,
+.ctrl-del:visited {
 	color: #000;
 }
 
-.viewCtrl:hover {
+.ctrl-view:hover {
 	color: #00b;
 }
 
-.delCtrl:hover {
+.ctrl-del:hover {
 	color: #b00;
 }
-
 
 /****** Poll Creation ******/
 
@@ -263,20 +261,19 @@ input {
 	width: 100%;
 }
 
-
 /****** Poll Page ******/
 
-#chart {
+canvas {
 	max-height: 500px;
 	max-width: 500px;
 	margin: 0 auto 30px auto;
 }
 
-#noVotes {
+.no-votes {
 	display: none;
 }
 
-#choices {
+.choices {
 	background: #eee;
 	font-size: 20px;
 	padding: 12.5px;
@@ -288,10 +285,9 @@ input {
 	bottom: 0;
 }
 
-#addChoiceBtn {
+.btn-add-choice {
 	margin: 0 auto;
 }
-
 
 /****** Profile ******/
 
@@ -340,18 +336,17 @@ span {
 	display: none;
 }
 
-
 /****** For mobile devices ******/
 
-@media screen and (max-width: 768px) {
-	#choices,
+@media (max-width: 768px) {
+	.choices,
 	.btn-big {
 		transform: scale(0.9);
 	}
 	.btn-big {
 		margin-bottom: 0;
 	}
-	#addChoiceBtn {
+	.btn-add-choice {
 		padding: 3px;
 	}
 	.create-poll {
@@ -361,8 +356,8 @@ span {
 	}
 }
 
-@media screen and (max-width: 768px) and (orientation: landscape) {
-	#addChoiceBtn {
+@media (max-height: 800px) {
+	.btn-add-choice {
 		display: none;
 	}
 }

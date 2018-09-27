@@ -10,7 +10,7 @@ $(document).ready(() => {
   // Apply user's vote
   function vote(choice) {
     // Hide 'no one has voted yet' message (if visible)
-    $('#noVotes').hide();
+    $('.no-votes').hide();
 
     // Add poll to localStorage (to prevent duplicate votes)
     pollsVoted += `|${pollId}`;
@@ -35,12 +35,12 @@ $(document).ready(() => {
     chart = new Chart(ctx, chartCode);
 
     // Notify the user if no one has voted
-    if (chartCode.data.datasets[0].data.every(e => e === 0)) { $('#noVotes').show(); }
+    if (chartCode.data.datasets[0].data.every(e => e === 0)) { $('.no-votes').show(); }
 
     // Add choices to drop-down box
-    $('#choices').html('');
+    $('.choices').html('');
     chartCode.data.labels.forEach((e) => {
-      $('#choices').append(`<option value="${e}">${e}</option>`);
+      $('.choices').append(`<option value="${e}">${e}</option>`);
     });
   }
 
@@ -82,7 +82,7 @@ $(document).ready(() => {
 
   // Vote button
   $('#voteBtn').click(() => {
-    const choice = $('#choices').val();
+    const choice = $('.choices').val();
 
     // Duplicate vote check
     if (pollsVoted.includes(pollId)) return alert('You have already voted on this poll.');

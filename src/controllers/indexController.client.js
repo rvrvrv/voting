@@ -1,10 +1,10 @@
 (function () {
-  const allPolls = document.querySelector('#allPolls');
+  const tablePolls = document.getElementsByClassName('table-polls')[0];
   const apiUrl = '/api/:id/load';
 
   // Retrieve and display all polls in DB
   function getAllPolls(data) {
-    allPolls.innerHTML = data.slice(1, -1);
+    tablePolls.innerHTML = data.slice(1, -1);
   }
 
   // Automatically show all polls on index page

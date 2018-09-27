@@ -1,1 +1,1 @@
-'use strict';(function(){var a=document.querySelector('#allPolls');ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET','/api/:id/load',function(b){a.innerHTML=b.slice(1,-1)}))})();
+'use strict';(function(){var a=document.getElementsByClassName('table-polls')[0];ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET','/api/:id/load',function(b){a.innerHTML=b.slice(1,-1)}))})();

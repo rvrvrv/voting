@@ -13,7 +13,7 @@ function ClickHandler() {
         if (err) throw err;
         let formattedOutput = '';
         result.forEach((e) => {
-          formattedOutput += `<tr><td><a class='viewCtrl' href='/poll/${e._id}'><i class='fa fa-comments'></i>&nbsp;&nbsp;${e.title}</a></td></tr>`;
+          formattedOutput += `<tr><td><a class='ctrl-view' href='/poll/${e._id}'><i class='fa fa-comments'></i>&nbsp;&nbsp;${e.title}</a></td></tr>`;
         });
         res.json(formattedOutput);
       });
@@ -31,7 +31,7 @@ function ClickHandler() {
         if (err) throw err;
         let formattedOutput = '';
         result.forEach((e) => {
-          formattedOutput += `<tr><td>${e.title}</td><td><a class='viewCtrl' href='/poll/${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='delCtrl' id='${e._id}' href='javascript:;' onclick='tryDel(this)'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
+          formattedOutput += `<tr><td>${e.title}</td><td><a class='ctrl-view' href='/poll/${e._id}'><i class='fa fa-2x fa-eye'></i></a></td><td><a class='ctrl-del' id='${e._id}' href='javascript:;' onclick='tryDel(this)'><i class='fa fa-2x fa-minus-circle'></i></button></td></tr>`;
         });
         res.json(formattedOutput);
       });
