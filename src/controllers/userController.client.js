@@ -1,6 +1,5 @@
 (function () {
   const profileUsername = document.querySelector('#profile-username') || null;
-  const profileRepos = document.querySelector('#profile-repos') || null;
   const displayName = document.querySelector('#display-name');
   const apiUrl = '/api/:id';
 
@@ -25,7 +24,6 @@
       if (userObject.displayName) updateHtmlElement(userObject, displayName, 'displayName');
       else updateHtmlElement(userObject, displayName, 'username');
       if (profileUsername) updateHtmlElement(userObject, profileUsername, 'username');
-      if (profileRepos) updateHtmlElement(userObject, profileRepos, 'publicRepos');
     }
   }));
 }());
