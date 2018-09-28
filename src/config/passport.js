@@ -26,7 +26,7 @@ module.exports = (passport) => {
         newUser.github.displayName = profile.displayName;
 
         return newUser.save((dbErr) => {
-          if (dbErr) throw err;
+          if (dbErr) throw dbErr;
           return done(null, newUser);
         });
       });
