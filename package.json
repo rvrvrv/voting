@@ -1,6 +1,6 @@
 {
   "name": "voting",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Voting App Project for FreeCodeCamp",
   "main": "server.js",
   "repository": {
