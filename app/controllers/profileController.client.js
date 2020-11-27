@@ -1,1 +1,4 @@
-'use strict';var apiUrl='/api/:id/loadOne';function displayUserPolls(a){$('#userPolls').html('<tr><th>Question</th><th>View</th><th>Delete</th></tr>'+a.slice(1,-1))}function tryDel(a){confirm('Are you sure you want to delete that poll?')&&ajaxFunctions.ajaxRequest('DELETE',apiUrl+'/'+a.id,function(){ajaxFunctions.ajaxRequest('GET',apiUrl,displayUserPolls)})}ajaxFunctions.ready(ajaxFunctions.ajaxRequest('GET',apiUrl,displayUserPolls));
+"use strict";var apiUrl="/api/:id/loadOne";// Retrieve and display one user's polls in DB
+function displayUserPolls(a){$("#userPolls").html("<tr><th>Question</th><th>View</th><th>Delete</th></tr>".concat(a.slice(1,-1)))}// Delete a poll (from the profile page)
+function tryDel(a){confirm("Are you sure you want to delete that poll?")&&ajaxFunctions.ajaxRequest("DELETE","".concat(apiUrl,"/").concat(a.id),function(){ajaxFunctions.ajaxRequest("GET",apiUrl,displayUserPolls)})}// Automatically show user's polls on profile page
+ajaxFunctions.ready(ajaxFunctions.ajaxRequest("GET","/api/:id/loadOne",displayUserPolls));
