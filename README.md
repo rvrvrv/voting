@@ -1,7 +1,7 @@
 # voting
 Voting App Project for FreeCodeCamp built on [Clementine.js FCC Boilerplate](https://github.com/johnstonbl01/clementinejs-fcc)
 
-**Live App**: https://rv-voting.herokuapp.com
+**Live App**: https://voting-rv.onrender.com
 
 ## User Stories
 
